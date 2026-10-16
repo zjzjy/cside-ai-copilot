@@ -524,7 +524,7 @@ cd frontend/extension && npm run verify   # test + lint + format:check + build +
 
 ### 团队与分工
 
-本项目为 4 人小组的课程 / 实践项目（Spring Boot + React + Chrome 扩展全栈实现）。仓库内 36 次提交中，本人（[@zjzjy](https://github.com/zjzjy)）提交 26 次，主要负责：
+本项目为 4 人小组协作完成（Spring Boot + React + Chrome 扩展全栈实现）。仓库内 36 次提交中，本人（[@zjzjy](https://github.com/zjzjy)）提交 26 次，主要负责：
 
 - **产品侧**：产品方案、AI PRD、SRS、任务拆分与验收标准（`docs/CSide-产品方案.md`、`docs/CSide-AI-PRD.md`、`docs/srs.md`、`docs/*-tasks.md`）；
 - **后端**：五步生成链路、RAG 混合检索、知识导入、品牌 / 店铺配置与 JWT 鉴权（`backend/src/main/java/com/cside/`）；
