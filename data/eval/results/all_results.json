@@ -1,0 +1,81 @@
+{
+  "Hunyuan-hy3": {
+    "model": "Hunyuan-hy3",
+    "total_ok": 25,
+    "total_runs": 25,
+    "ok_rate": "100%",
+    "input_tokens": 9045,
+    "output_tokens": 3393,
+    "cost_in": 0.0072,
+    "cost_out": 0.0068,
+    "cost_total": 0.014,
+    "cost_per_call": 0.0006,
+    "case_details": [
+      {
+        "case_id": "T1",
+        "scene": "after_sale_fault",
+        "brand": "vivo",
+        "repeats": 5,
+        "ok": 5,
+        "json_parse_ok": 5,
+        "json_parse_rate": "100%",
+        "input_tokens": 1705,
+        "output_tokens": 749,
+        "avg_latency_ms": 3037,
+        "brand_leaks": []
+      },
+      {
+        "case_id": "T2",
+        "scene": "pre_sale_photo",
+        "brand": "vivo",
+        "repeats": 5,
+        "ok": 5,
+        "json_parse_ok": 5,
+        "json_parse_rate": "100%",
+        "input_tokens": 1790,
+        "output_tokens": 672,
+        "avg_latency_ms": 2883,
+        "brand_leaks": []
+      },
+      {
+        "case_id": "T3",
+        "scene": "pre_sale_compare",
+        "brand": "huawei",
+        "repeats": 5,
+        "ok": 5,
+        "json_parse_ok": 5,
+        "json_parse_rate": "100%",
+        "input_tokens": 1905,
+        "output_tokens": 692,
+        "avg_latency_ms": 2916,
+        "brand_leaks": []
+      },
+      {
+        "case_id": "T4",
+        "scene": "pre_sale_price",
+        "brand": "vivo",
+        "repeats": 5,
+        "ok": 5,
+        "json_parse_ok": 5,
+        "json_parse_rate": "100%",
+        "input_tokens": 1780,
+        "output_tokens": 648,
+        "avg_latency_ms": 2888,
+        "brand_leaks": []
+      },
+      {
+        "case_id": "T5",
+        "scene": "after_sale_fault",
+        "brand": "huawei",
+        "repeats": 5,
+        "ok": 5,
+        "json_parse_ok": 5,
+        "json_parse_rate": "100%",
+        "input_tokens": 1865,
+        "output_tokens": 632,
+        "avg_latency_ms": 2647,
+        "brand_leaks": []
+      }
+    ]
+  }
+}

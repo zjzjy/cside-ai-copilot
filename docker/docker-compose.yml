@@ -1,0 +1,57 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: cside-db
+    environment:
+      POSTGRES_DB: ${DB_NAME:-cside}
+      POSTGRES_USER: ${DB_USER:-cside}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-cside}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-cside} -d ${DB_NAME:-cside}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: cside-redis
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: sh -c "if [ -n \"$$REDIS_PASSWORD\" ]; then exec redis-server --requirepass \"$$REDIS_PASSWORD\"; else exec redis-server; fi"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD-SHELL", "if [ -n \"$$REDIS_PASSWORD\" ]; then redis-cli -a \"$$REDIS_PASSWORD\" ping; else redis-cli ping; fi"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  embeddings:
+    image: ${EMBEDDING_DOCKER_IMAGE:-ghcr.io/huggingface/text-embeddings-inference:cpu-ipex-latest}
+    container_name: cside-embeddings
+    command: --model-id ${EMBEDDING_MODEL:-BAAI/bge-large-zh-v1.5}
+    ports:
+      - "${EMBEDDING_PORT:-8182}:80"
+    volumes:
+      - embeddingdata:/data
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://localhost/health', timeout=3).read()"
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 120s
+
+volumes:
+  pgdata:
+  redisdata:
+  embeddingdata:

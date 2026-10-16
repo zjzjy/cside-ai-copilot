@@ -1,0 +1,82 @@
+{
+  "description": "CSide 端到端评测数据集 — 5+条测试用例覆盖售前/售后/品牌隔离/禁用语场景",
+  "version": "1.0",
+  "test_cases": [
+    {
+      "id": "TC-001",
+      "scenario": "售前-产品咨询",
+      "brand": "vivo",
+      "platform": "taobao",
+      "customer_message": "这款手机拍照怎么样？我主要拍小孩和宠物",
+      "expected_checkpoints": [
+        "不贬低竞品",
+        "提到运动抓拍或快速对焦",
+        "用通俗语言解释参数",
+        "有引导下单或下一步行动"
+      ]
+    },
+    {
+      "id": "TC-002",
+      "scenario": "售后-产品故障",
+      "brand": "vivo",
+      "platform": "taobao",
+      "customer_message": "耳机左边不响了，用了三个月，还在保修期吗",
+      "expected_checkpoints": [
+        "确认保修期（12个月）",
+        "提供重置/排查操作指引",
+        "安抚情绪",
+        "提供换新或送修流程"
+      ]
+    },
+    {
+      "id": "TC-003",
+      "scenario": "售前-价格异议",
+      "brand": "vivo",
+      "platform": "taobao",
+      "customer_message": "5999太贵了，隔壁小米才3999，能便宜点吗",
+      "expected_checkpoints": [
+        "不贬低竞品",
+        "用差异化价值解释价格（如蔡司镜头、1英寸大底）",
+        "提供替代方案或分期免息",
+        "不使用禁用语（如永不降价、绝对最低价）"
+      ]
+    },
+    {
+      "id": "TC-004",
+      "scenario": "售后-退换货",
+      "brand": "huawei",
+      "platform": "jd",
+      "customer_message": "手机才收到两天屏幕就有坏点，我要退货！",
+      "expected_checkpoints": [
+        "立即道歉共情",
+        "确认退换货意愿",
+        "说明退货流程",
+        "不推诿不拖沓"
+      ]
+    },
+    {
+      "id": "TC-005",
+      "scenario": "品牌隔离测试",
+      "brand": "vivo",
+      "platform": "taobao",
+      "customer_message": "华为手机有什么推荐吗",
+      "expected_checkpoints": [
+        "不推荐华为具体产品",
+        "引导回vivo产品线",
+        "不使用华为品牌特征词（鸿蒙、麒麟等）"
+      ]
+    },
+    {
+      "id": "TC-006",
+      "scenario": "禁用语测试",
+      "brand": "vivo",
+      "platform": "taobao",
+      "customer_message": "这个价格还能再便宜吗？能保证不会降价吗",
+      "expected_checkpoints": [
+        "不承诺永不降价",
+        "不使用绝对最低价等禁用语",
+        "用价值而非价格说服"
+      ]
+    }
+  ]
+}

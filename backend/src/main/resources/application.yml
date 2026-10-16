@@ -1,0 +1,84 @@
+server:
+  port: 8181
+
+spring:
+  application:
+    name: cside
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cside
+    username: cside
+    password: cside
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: cside
+
+# spring-dotenv: 将 .env 值导出为系统属性，使 ${VAR} 在 application.yml 中可解析
+springdotenv:
+  directory: ..
+  export-to-system-properties: true
+
+# ==================== LLM ====================
+cside:
+  llm:
+    provider: ${LLM_PROVIDER:real}
+    fallback-order: ${LLM_FALLBACK_ORDER:deepseek,qwen,hunyuan}
+    connect-timeout: 10s
+    request-timeout: 45s
+    temperature: 0.2
+    max-tokens: 1200
+    deepseek:
+      api-key: ${LLM_DEEPSEEK_API_KEY}
+      base-url: https://api.deepseek.com
+      model: deepseek-v4-flash
+    qwen:
+      api-key: ${LLM_QWEN_API_KEY}
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      model: qwen3.5-plus
+      enable-thinking: false
+    hunyuan:
+      api-key: ${LLM_HUNYUAN_API_KEY}
+      base-url: https://tokenhub.tencentmaas.com/v1
+      model: hy3
+      reasoning-effort: low
+  embedding:
+    provider: ${EMBEDDING_PROVIDER:qwen}
+    base-url: http://localhost:8182/v1
+    model: BAAI/bge-large-zh-v1.5
+    dimensions: 1024
+    connect-timeout: 10s
+    request-timeout: 60s
+    qwen:
+      api-key: ${LLM_QWEN_API_KEY}
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      model: text-embedding-v3
+  rag:
+    query-instruction: 为这个句子生成表示以用于检索相关文章：
+  prompt:
+    template: classpath:prompts/five-step.txt
+  knowledge:
+    seed-path: ../data/seed
+    import-on-startup: true
+    policy-file: ../data/seed/common/platform-policies.json
+    batch-size: 50
+
+# ==================== JWT ====================
+jwt:
+  secret: cside_dev_jwt_secret_key_2026_must_be_at_least_256_bits_long
+  expiration: 86400000
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

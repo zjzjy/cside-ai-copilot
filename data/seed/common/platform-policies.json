@@ -1,0 +1,34 @@
+{
+  "level": "common",
+  "description": "平台公共政策，全矩阵共享",
+  "platforms": {
+    "taobao": {
+      "name": "淘宝",
+      "return_policy": "支持7天无理由退货（特殊商品除外），买家承担退货运费（质量问题卖家承担）",
+      "shipping_rule": "付款后48小时内发货，超时可投诉赔付",
+      "dispute_process": "买家申请退款→卖家处理→如拒绝可申请淘宝介入",
+      "response_requirement": "3分钟内首响，否则可能影响店铺评分"
+    },
+    "jd": {
+      "name": "京东",
+      "return_policy": "支持7天无理由退货，京东自营商品退货运费由京东承担（Plus会员无限免运费）",
+      "shipping_rule": "自营商品当日/次日达，第三方卖家参照淘宝规则",
+      "dispute_process": "买家申请→京东客服介入→判责",
+      "response_requirement": "3分钟内首响，30秒应答率考核严格"
+    },
+    "pdd": {
+      "name": "拼多多",
+      "return_policy": "支持7天无理由退货，退货包运费（平台补贴）",
+      "shipping_rule": "48小时内发货",
+      "dispute_process": "支持仅退款（部分场景无需退货），平台倾向消费者",
+      "response_requirement": "5分钟内首响"
+    },
+    "douyin": {
+      "name": "抖音",
+      "return_policy": "支持7天无理由退货，特殊类目除外",
+      "shipping_rule": "48小时内发货，预售商品按约定时间",
+      "dispute_process": "类似淘宝，平台介入机制",
+      "response_requirement": "3分钟内回复率需≥80%"
+    }
+  }
+}

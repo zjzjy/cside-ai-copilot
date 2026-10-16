@@ -1,0 +1,586 @@
+{
+  "model": "Hunyuan-hy3",
+  "total_ok": 25,
+  "total_runs": 25,
+  "ok_rate": "100%",
+  "input_tokens": 9045,
+  "output_tokens": 3393,
+  "cost_in": 0.0072,
+  "cost_out": 0.0068,
+  "cost_total": 0.014,
+  "cost_per_call": 0.0006,
+  "case_details": [
+    {
+      "case_id": "T1",
+      "scene": "after_sale_fault",
+      "brand": "vivo",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 1705,
+      "output_tokens": 749,
+      "avg_latency_ms": 3037,
+      "brand_leaks": []
+    },
+    {
+      "case_id": "T2",
+      "scene": "pre_sale_photo",
+      "brand": "vivo",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 1790,
+      "output_tokens": 672,
+      "avg_latency_ms": 2883,
+      "brand_leaks": []
+    },
+    {
+      "case_id": "T3",
+      "scene": "pre_sale_compare",
+      "brand": "huawei",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 1905,
+      "output_tokens": 692,
+      "avg_latency_ms": 2916,
+      "brand_leaks": []
+    },
+    {
+      "case_id": "T4",
+      "scene": "pre_sale_price",
+      "brand": "vivo",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 1780,
+      "output_tokens": 648,
+      "avg_latency_ms": 2888,
+      "brand_leaks": []
+    },
+    {
+      "case_id": "T5",
+      "scene": "after_sale_fault",
+      "brand": "huawei",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 1865,
+      "output_tokens": 632,
+      "avg_latency_ms": 2647,
+      "brand_leaks": []
+    }
+  ],
+  "raw_runs": [
+    {
+      "case": {
+        "id": "T1",
+        "customer_message": "耳机左边不响了，用了三个月，还在保修期吗",
+        "brand": "vivo",
+        "brand_en": "vivo",
+        "platform": "taobao",
+        "scene": "after_sale_fault"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户耳机左声道无声，购于三个月前，询问是否在保修期内，情绪平稳带疑问",
+            "step2_strategy": "确认保修状态为12个月联保内，引导先做重置排查，无效则走售后换新工单",
+            "step3_script": "您好，vivo TWS 3耳机享12个月全国联保，您使用三个月仍在保修内。建议先放回充电仓长按10秒重置，若左耳仍无声请联系我生成工单寄回换新。",
+            "step4_hook": "请先重置测试并反馈结果",
+            "step5_close": "后续选购配件享专属服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 3.2712080478668213,
+          "input_tokens": 341,
+          "output_tokens": 151
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户耳机左声道无声，购于三个月前，询问是否在保修期内，情绪平稳带疑问",
+            "step2_strategy": "确认保修状态为12个月联保覆盖，引导先做重置排查再走售后换新流程",
+            "step3_script": "您好，vivo TWS 3耳机享12个月全国联保，您使用三个月仍在保修期。建议先放回充电仓长按10秒重置，若左耳仍不响，我们为您生成工单寄回换新。",
+            "step4_hook": "请先重置，无效联系客服开单",
+            "step5_close": "后续选购vivo配件享专属服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 3.07468843460083,
+          "input_tokens": 341,
+          "output_tokens": 152
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户耳机左声道无声，购于三个月前，询问是否在保修期内，情绪平稳带疑问",
+            "step2_strategy": "确认保修状态为12个月联保覆盖，引导先做重置排查再走售后换新流程",
+            "step3_script": "您好，vivo TWS 3耳机享12个月全国联保，您使用三个月仍在保修内。建议先放回充电仓长按10秒重置，若左耳仍不响，我们为您生成工单寄回换新。",
+            "step4_hook": "请先重置，无效联系寄回",
+            "step5_close": "后续选购配件享专属服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 2.977879047393799,
+          "input_tokens": 341,
+          "output_tokens": 149
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户耳机左声道无声，购于三个月前，询问是否在保修期内，情绪平稳带疑问",
+            "step2_strategy": "确认保修状态为12个月联保内，引导先做重置排查，无效则走售后换新流程",
+            "step3_script": "您好，vivo TWS 3耳机享12个月全国联保，您使用三个月仍在保修内。建议先放回充电仓长按10秒重置，若左耳仍不响，我们为您生成工单寄回换新。",
+            "step4_hook": "请先重置测试并反馈结果",
+            "step5_close": "后续购机享专属客服服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 2.899871826171875,
+          "input_tokens": 341,
+          "output_tokens": 153
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户耳机左声道无声，购于三月前，询问是否在保修期内，略带疑虑",
+            "step2_strategy": "确认保修状态，说明12月联保政策，引导故障排查与售后换新流程",
+            "step3_script": "您好，vivo TWS 3耳机享12个月全国联保，您使用三个月仍在保修期。建议先放回充电仓长按10秒重置，若无效我们为您走换新。",
+            "step4_hook": "请先重置，无效生成工单寄回",
+            "step5_close": "换新手机会伴您，欢迎再来选购"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 2.96374773979187,
+          "input_tokens": 341,
+          "output_tokens": 144
+        }
+      ]
+    },
+    {
+      "case": {
+        "id": "T2",
+        "customer_message": "这款手机拍照怎么样？我主要拍小孩和宠物",
+        "brand": "vivo",
+        "brand_en": "vivo",
+        "platform": "taobao",
+        "scene": "pre_sale_photo"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询手机拍照性能，重点关注拍小孩宠物场景，无明显负面情绪",
+            "step2_strategy": "结合知识库推荐运动抓拍与AI美颜，用参数翻译为易懂语言解答疑虑",
+            "step3_script": "咱们vivo机型有运动抓拍模式，专拍小孩宠物不糊；如S19 Pro前置5000万像素加AI美颜，成像清晰自然。",
+            "step4_hook": "可下单体验运动抓拍效果",
+            "step5_close": "后续有问题随时找我们"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 3.2036476135253906,
+          "input_tokens": 358,
+          "output_tokens": 128
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询手机拍照性能，重点关注拍小孩和宠物场景，无明显负面情绪",
+            "step2_strategy": "结合知识库推荐运动抓拍与AI美颜，用参数翻译为易懂语言匹配其需求",
+            "step3_script": "咱们vivo有运动抓拍模式，专拍小孩宠物不糊；AI美颜算法让成片自然。X100 Ultra有6400万潜望长焦和1英寸大底，抓拍清晰。",
+            "step4_hook": "可去详情页看样张对比",
+            "step5_close": "后续使用问题随时找我们"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.9025282859802246,
+          "input_tokens": 358,
+          "output_tokens": 142
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询手机拍照性能，重点关注拍小孩和宠物场景，无明显负面情绪",
+            "step2_strategy": "结合知识库推荐运动抓拍与AI美颜，用参数翻译为易懂语言匹配其需求",
+            "step3_script": "推荐X100 Ultra或X100 Pro，搭载运动抓拍模式，拍小孩宠物不糊；AI美颜算法让成片自然。X100 Ultra有6400万潜望长焦，远处也能清晰抓拍。",
+            "step4_hook": "可下单体验7天无理由退货",
+            "step5_close": "后续有疑问随时找我们"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.952385187149048,
+          "input_tokens": 358,
+          "output_tokens": 145
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询手机拍照性能，重点关注拍小孩宠物场景，意图明确无负面情绪",
+            "step2_strategy": "结合知识库推荐运动抓拍与AI美颜，用参数翻译为易懂语言说明适配性",
+            "step3_script": "推荐X100 Ultra或X100 Pro，搭载运动抓拍模式，专拍小孩宠物不糊；AI美颜算法让成片自然。",
+            "step4_hook": "可下单体验7天无理由退货",
+            "step5_close": "后续有疑问随时找我们复购无忧"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.6745426654815674,
+          "input_tokens": 358,
+          "output_tokens": 132
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询手机拍照性能，重点关注拍小孩宠物场景，无明显负面情绪",
+            "step2_strategy": "结合知识库推荐运动抓拍与AI美颜，用参数翻译为易懂语言解答需求",
+            "step3_script": "咱们手机有运动抓拍模式，专拍小孩宠物不糊；AI美颜加前置5000万像素，清晰又自然。",
+            "step4_hook": "可下单体验7天无理由退货",
+            "step5_close": "后续有问题随时找官方客服"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.684415102005005,
+          "input_tokens": 358,
+          "output_tokens": 125
+        }
+      ]
+    },
+    {
+      "case": {
+        "id": "T3",
+        "customer_message": "mate70pro和pura70ultra哪个好？主要用来拍照",
+        "brand": "huawei",
+        "brand_en": "huawei",
+        "platform": "jd",
+        "scene": "pre_sale_compare"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询两款机型差异，主用拍照，无明显情绪倾向",
+            "step2_strategy": "依据知识库对比影像能力，推荐Pura70Ultra并说明优势",
+            "step3_script": "您好，若主要用来拍照，Pura 70 Ultra更合适。其搭载麒麟9020与5000万超聚光伸缩主摄及1英寸传感器，影像能力为专业旗舰水准，Mate 70 Pro则更均衡。",
+            "step4_hook": "可下单享7天无理由试用",
+            "step5_close": "华为品质护航，欢迎再次选购"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "麒麟"
+          ],
+          "latency": 3.0400052070617676,
+          "input_tokens": 381,
+          "output_tokens": 143
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询两款机型差异，主要用途为拍照，无明显情绪",
+            "step2_strategy": "基于知识库对比影像能力，明确Pura 70 Ultra更适拍照需求",
+            "step3_script": "您好，若主要用来拍照，Pura 70 Ultra搭载麒麟9020与超聚光伸缩主摄及1英寸传感器，影像能力更为突出，是专业影像旗舰。",
+            "step4_hook": "可下单体验影像旗舰",
+            "step5_close": "华为品质值得您信赖"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "麒麟"
+          ],
+          "latency": 2.6839728355407715,
+          "input_tokens": 381,
+          "output_tokens": 127
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询两款机型差异，主用拍照，无明显情绪",
+            "step2_strategy": "依据知识库对比影像能力，推荐Pura70Ultra并说明优势",
+            "step3_script": "您好，若主要用来拍照，Pura 70 Ultra更合适。其搭载麒麟9020与5000万超聚光伸缩主摄及1英寸传感器，影像能力为专业旗舰水准，Mate 70 Pro则更均衡。",
+            "step4_hook": "可下单享7天无理由试用",
+            "step5_close": "华为品质护航，欢迎再次选购"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "麒麟"
+          ],
+          "latency": 3.0625569820404053,
+          "input_tokens": 381,
+          "output_tokens": 142
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询两款机型差异，主用拍照，无明显情绪倾向",
+            "step2_strategy": "依据知识库对比影像能力，推荐Pura 70 Ultra并说明优势",
+            "step3_script": "您好，若主要用来拍照，Pura 70 Ultra更合适。其搭载麒麟9020与5000万超聚光伸缩主摄及1英寸传感器，影像能力为专业旗舰水准，Mate 70 Pro则更均衡。",
+            "step4_hook": "可查看Pura样张详情",
+            "step5_close": "华为品质，欢迎再次选购"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "麒麟"
+          ],
+          "latency": 2.9824085235595703,
+          "input_tokens": 381,
+          "output_tokens": 142
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户咨询两款机型差异，主要用途为拍照，无明显负面情绪",
+            "step2_strategy": "基于知识库对比影像能力，明确Pura 70 Ultra更适拍照，专业介绍",
+            "step3_script": "您好，Mate 70 Pro为全能商务旗舰；Pura 70 Ultra搭载麒麟9020与1英寸伸缩主摄，影像能力更为突出，主用于拍照建议选Pura 70 Ultra。",
+            "step4_hook": "可下单享7天无理由退货",
+            "step5_close": "华为品质可靠，欢迎再次选购"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "麒麟"
+          ],
+          "latency": 2.8128180503845215,
+          "input_tokens": 381,
+          "output_tokens": 138
+        }
+      ]
+    },
+    {
+      "case": {
+        "id": "T4",
+        "customer_message": "5999太贵了，隔壁小米才3999，能便宜点吗",
+        "brand": "vivo",
+        "brand_en": "vivo",
+        "platform": "taobao",
+        "scene": "pre_sale_price"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户认为X100 Ultra定价高，对比小米价格，希望获得降价优惠",
+            "step2_strategy": "说明无法直接降价，用免息和赠品提升价值，推荐Pro版分流预算",
+            "step3_script": "X100 Ultra享12期免息送399元耳机，如预算有限X100 Pro月供416元也合适",
+            "step4_hook": "点链接看Pro版免息详情",
+            "step5_close": "后续换机欢迎回店选购"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.673536777496338,
+          "input_tokens": 356,
+          "output_tokens": 122
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户认为X100 Ultra定价高，对比小米价格，希望获得降价优惠",
+            "step2_strategy": "说明无法直接降价，提供12期免息加赠耳机方案，并推荐X100 Pro分流预算",
+            "step3_script": "这款X100 Ultra支持12期免息，还送价值399元TWS 3耳机。若预算有限，X100 Pro月供416元，体验也很出色。",
+            "step4_hook": "点击链接看免息方案",
+            "step5_close": "后续换机可享专属服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.9155666828155518,
+          "input_tokens": 356,
+          "output_tokens": 135
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户认为X100 Ultra定价高，对比小米价格，希望降价并带犹豫情绪",
+            "step2_strategy": "说明无法直接降价，用免息和赠品提升价值，并推荐Pro版分流预算",
+            "step3_script": "X100 Ultra享12期免息送399元耳机，若预算有限X100 Pro月供416元也合适",
+            "step4_hook": "点链接看Pro版免息详情",
+            "step5_close": "后续换机欢迎回店选购"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.79127836227417,
+          "input_tokens": 356,
+          "output_tokens": 122
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户认为X100 Ultra定价高，对比小米价格，希望降价并带犹豫情绪",
+            "step2_strategy": "说明无法直降但给免息和赠品，推Pro版分流预算，用参数讲价值",
+            "step3_script": "X100 Ultra享12期免息送399元耳机，月供无压力；预算有限可选X100 Pro，12期月供416元。",
+            "step4_hook": "点链接看Pro版免息详情",
+            "step5_close": "后续换机优先选vivo"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.981919288635254,
+          "input_tokens": 356,
+          "output_tokens": 133
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户认为X100 Ultra定价高，对比小米价格，想议价省钱且有犹豫情绪",
+            "step2_strategy": "不直降但讲免息赠品价值，推Pro分期方案，用参数翻译打消贵感",
+            "step3_script": "X100 Ultra享12期免息送399元耳机，月供约500元。预算有限可选X100 Pro，12期月供416元。",
+            "step4_hook": "点链接看Pro免息详情",
+            "step5_close": "购后享12月联保服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 3.082402467727661,
+          "input_tokens": 356,
+          "output_tokens": 136
+        }
+      ]
+    },
+    {
+      "case": {
+        "id": "T5",
+        "customer_message": "用了半年手机突然开不了机了，卡在logo界面",
+        "brand": "huawei",
+        "brand_en": "huawei",
+        "platform": "jd",
+        "scene": "after_sale_fault"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户手机使用半年无法开机卡logo，疑似故障且带焦虑情绪",
+            "step2_strategy": "先安抚并给自救方案，说明保修政策引导售后检测维修",
+            "step3_script": "您好，请长按电源键+音量下键15秒强制重启。手机享12个月全国联保，非人为质量问题可免费维修，建议前往华为服务中心检测。",
+            "step4_hook": "可预约附近华为服务中心检测",
+            "step5_close": "华为品质可靠，欢迎继续选购"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.6708180904388428,
+          "input_tokens": 373,
+          "output_tokens": 124
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户手机使用半年无法开机卡logo，疑似故障且带焦虑情绪",
+            "step2_strategy": "先安抚并给自救方案，说明保修政策，引导检测维修",
+            "step3_script": "您好，请长按电源键+音量下键15秒强制重启。手机享12个月全国联保，非人为故障可免费维修，建议前往服务中心检测。",
+            "step4_hook": "可预约华为服务日免人工费",
+            "step5_close": "欢迎继续选购华为产品"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.566098690032959,
+          "input_tokens": 373,
+          "output_tokens": 124
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户手机使用半年无法开机卡logo，疑似故障且带焦虑情绪",
+            "step2_strategy": "先安抚并给自救方案，说明保修政策，引导检测维修",
+            "step3_script": "您好，请长按电源键+音量下键15秒强制重启。手机享12个月全国联保，非人为质量问题可免费维修，建议前往服务中心检测。",
+            "step4_hook": "可预约华为服务日免人工费",
+            "step5_close": "欢迎继续选购华为产品"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.5874414443969727,
+          "input_tokens": 373,
+          "output_tokens": 123
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户手机使用半年无法开机卡logo，寻求故障解决与保修帮助，略带焦虑",
+            "step2_strategy": "先安抚并给自救方案，说明保修政策，引导检测以判断非人为质量问题",
+            "step3_script": "您好，请长按电源键+音量下键15秒强制重启。手机享12个月全国联保，非人为质量问题可免费维修，建议前往服务中心检测。",
+            "step4_hook": "可预约附近华为服务中心检测",
+            "step5_close": "华为品质可靠，欢迎持续关注新品"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.7269985675811768,
+          "input_tokens": 373,
+          "output_tokens": 133
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户手机使用半年突发无法开机且卡logo，疑似故障，带焦虑求助情绪",
+            "step2_strategy": "先安抚并给强制重启自救法，再说明保修政策引导检测维修",
+            "step3_script": "您好，请长按电源键+音量下键15秒强制重启。若仍卡logo，手机享12个月全国联保，可前往服务中心检测。",
+            "step4_hook": "建议预约附近华为服务中心检测",
+            "step5_close": "华为品质可靠，欢迎持续关注新品"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.6884915828704834,
+          "input_tokens": 373,
+          "output_tokens": 128
+        }
+      ]
+    }
+  ]
+}

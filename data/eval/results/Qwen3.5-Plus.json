@@ -1,0 +1,617 @@
+{
+  "model": "Qwen3.5-Plus",
+  "total_ok": 22,
+  "total_runs": 25,
+  "ok_rate": "88%",
+  "input_tokens": 9800,
+  "output_tokens": 4045,
+  "cost_in": 0.0078,
+  "cost_out": 0.0194,
+  "cost_total": 0.0273,
+  "cost_per_call": 0.0011,
+  "case_details": [
+    {
+      "case_id": "T1",
+      "scene": "after_sale_fault",
+      "brand": "vivo",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 1840,
+      "output_tokens": 818,
+      "avg_latency_ms": 3081,
+      "brand_leaks": []
+    },
+    {
+      "case_id": "T2",
+      "scene": "pre_sale_photo",
+      "brand": "vivo",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 1920,
+      "output_tokens": 945,
+      "avg_latency_ms": 3951,
+      "brand_leaks": []
+    },
+    {
+      "case_id": "T3",
+      "scene": "pre_sale_compare",
+      "brand": "huawei",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 2055,
+      "output_tokens": 806,
+      "avg_latency_ms": 3404,
+      "brand_leaks": []
+    },
+    {
+      "case_id": "T4",
+      "scene": "pre_sale_price",
+      "brand": "vivo",
+      "repeats": 5,
+      "ok": 2,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 1975,
+      "output_tokens": 851,
+      "avg_latency_ms": 3589,
+      "brand_leaks": [
+        "huawei:北斗",
+        "huawei:卫星通信",
+        "huawei:卫星通信"
+      ]
+    },
+    {
+      "case_id": "T5",
+      "scene": "after_sale_fault",
+      "brand": "huawei",
+      "repeats": 5,
+      "ok": 5,
+      "json_parse_ok": 5,
+      "json_parse_rate": "100%",
+      "input_tokens": 2010,
+      "output_tokens": 625,
+      "avg_latency_ms": 2933,
+      "brand_leaks": []
+    }
+  ],
+  "raw_runs": [
+    {
+      "case": {
+        "id": "T1",
+        "customer_message": "耳机左边不响了，用了三个月，还在保修期吗",
+        "brand": "vivo",
+        "brand_en": "vivo",
+        "platform": "taobao",
+        "scene": "after_sale_fault"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户发现左耳耳机无声，确认保修资格，情绪略带焦虑",
+            "step2_strategy": "先确认在保（3个月＜12个月），引导重置操作排查，再提供换新路径",
+            "step3_script": "您好，vivo TWS 3整机保修12个月，您使用3个月仍在保修期内。建议先将耳机放回充电仓，长按功能键10秒重置，若左耳仍无声音，我们为您安排免费换新。",
+            "step4_hook": "方便为您生成换新工单吗？",
+            "step5_close": "换新后欢迎随时反馈体验"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 2.969583034515381,
+          "input_tokens": 368,
+          "output_tokens": 151
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户发现左耳耳机无声，情绪略焦虑，确认保修资格并寻求快速解决方案",
+            "step2_strategy": "先确认在保（3个月＜12个月），引导重置操作排除软件异常，再提供换新路径",
+            "step3_script": "您好，vivo TWS 3整机保修12个月，您使用3个月仍在保修期内。建议先将耳机放回充电仓，长按功能键10秒重置，重启后测试左右声道是否恢复。如仍无声音，我们为您安排免费换新。",
+            "step4_hook": "现在帮您生成换新工单？",
+            "step5_close": "换新后欢迎随时反馈体验～"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 3.0364513397216797,
+          "input_tokens": 368,
+          "output_tokens": 163
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户发现左耳耳机无声，确认保修资格并寻求解决方案，情绪略带焦虑",
+            "step2_strategy": "先确认在保（3个月＜12个月），引导重置操作排查，再提供换新路径，强调流程时效性",
+            "step3_script": "您好，vivo TWS 3整机保修12个月，您使用3个月仍在保修期内。建议先将耳机放回充电仓，长按功能键10秒重置，若仍无声音，我们为您安排免费换新，检测后1-3工作日发出新机。",
+            "step4_hook": "现在帮您生成换新工单？",
+            "step5_close": "换新后欢迎体验vivo音频优化技术"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 3.1408822536468506,
+          "input_tokens": 368,
+          "output_tokens": 171
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户发现左耳耳机无声，确认保修资格并寻求解决方案，情绪略带焦虑",
+            "step2_strategy": "先确认在保（3个月＜12个月），引导重置操作排查，再提供换新路径，强调15天质量问题免费换新",
+            "step3_script": "您好，vivo TWS 3 耳机享受12个月全国联保，您使用3个月仍在保修期内。建议先放回充电仓长按10秒重置试试，若仍无声音，我们为您安排免费换新服务。",
+            "step4_hook": "需要我马上为您生成换新工单吗？",
+            "step5_close": "换新后欢迎随时反馈体验～"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 3.0409553050994873,
+          "input_tokens": 368,
+          "output_tokens": 166
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户发现左耳耳机无声，确认保修资格并寻求解决方案，情绪略带焦虑",
+            "step2_strategy": "先确认在保（3个月＜12个月），引导重置操作排查，再提供换新路径，强调15天质量问题免费换新",
+            "step3_script": "您好，vivo TWS 3 耳机享12个月全国联保，您使用3个月仍在保修期内。建议先放回充电仓长按10秒重置，若仍无左声道声音，我们可为您安排免费换新服务。",
+            "step4_hook": "现在为您生成换新工单？",
+            "step5_close": "换新后欢迎体验vivo音频优化技术"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "vivo TWS"
+          ],
+          "latency": 3.218400239944458,
+          "input_tokens": 368,
+          "output_tokens": 167
+        }
+      ]
+    },
+    {
+      "case": {
+        "id": "T2",
+        "customer_message": "这款手机拍照怎么样？我主要拍小孩和宠物",
+        "brand": "vivo",
+        "brand_en": "vivo",
+        "platform": "taobao",
+        "scene": "pre_sale_photo"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注拍照性能，尤其针对动态人像和宠物抓拍场景，情绪偏务实期待",
+            "step2_strategy": "聚焦X100 Ultra和S19 Pro两款机型，用AI运动抓拍+硬件参数解释清晰成像逻辑，避免绝对化表述",
+            "step3_script": "拍小孩和宠物推荐vivo X100 Ultra或S19 Pro：X100 Ultra搭载1英寸大底主摄+6400万潜望长焦，配合AI运动抓拍模式，能快速锁定移动主体；S19 Pro前置5000万+AI美颜算法，自拍更自然。两款都支持智能追焦和快门延迟优化。",
+            "step4_hook": "需要帮您对比这两款吗？",
+            "step5_close": "后续购机可享全国联保"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "大底主摄"
+          ],
+          "latency": 3.45274019241333,
+          "input_tokens": 384,
+          "output_tokens": 196
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注拍照效果，尤其针对动态人像和宠物抓拍，隐含对成像速度、清晰度和防抖能力的期待",
+            "step2_strategy": "聚焦X100 Ultra和X100 Pro的影像优势，用具体参数解释‘拍小孩宠物’场景适配性，强调运动抓拍模式与AI算法协同作用",
+            "step3_script": "您常拍小孩和宠物，推荐X100 Ultra：6400万潜望长焦+1英寸大底主摄，配合蔡司T*镀膜减少眩光；开启运动抓拍模式，0.5秒内连拍10张，AI智能识别动作轨迹，糊片率降低约40%（实测数据）",
+            "step4_hook": "需要帮您对比两款机型实拍样张吗？",
+            "step5_close": "后续购机可享专属影像设置指导"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "蔡司",
+            "大底主摄"
+          ],
+          "latency": 4.000239133834839,
+          "input_tokens": 384,
+          "output_tokens": 211
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注拍照效果，尤其在意动态抓拍能力，情绪偏务实期待",
+            "step2_strategy": "聚焦运动抓拍场景，用X100 Ultra和S19 Pro双机型对比说明，强调AI算法+硬件协同优势",
+            "step3_script": "拍小孩和宠物推荐vivo X100 Ultra——1英寸主摄+6400万潜望长焦，配合AI运动抓拍模式，快门延迟低至28ms，连拍时自动识别眨眼/模糊并智能优选；S19 Pro前置5000万也支持动态追焦，适合亲子自拍。",
+            "step4_hook": "需要帮您看下哪款更匹配使用习惯吗？",
+            "step5_close": "vivo全国联保12个月，放心体验"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 4.729032516479492,
+          "input_tokens": 384,
+          "output_tokens": 187
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注拍照性能，尤其针对动态人像和宠物抓拍场景，情绪期待专业建议",
+            "step2_strategy": "聚焦X100 Ultra和X100 Pro的影像优势，用具体参数解释抓拍能力，并关联AI算法与实际使用场景",
+            "step3_script": "拍小孩和宠物推荐vivo X100 Ultra——6400万潜望长焦+1英寸大底主摄，配合蔡司T*镀膜减少眩光；运动抓拍模式可智能预判动作，连拍清晰不糊，AI美颜还能自然保留孩子神态",
+            "step4_hook": "需要帮您对比两款机型吗？",
+            "step5_close": "后续有拍摄问题随时找我"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "蔡司",
+            "大底主摄"
+          ],
+          "latency": 3.4726738929748535,
+          "input_tokens": 384,
+          "output_tokens": 174
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注拍摄效果，尤其在意动态抓拍能力与真实使用体验",
+            "step2_strategy": "聚焦运动抓拍场景，用X100 Ultra和S19 Pro双机型对比说明，强调AI算法+硬件协同优势",
+            "step3_script": "拍小孩和宠物特别推荐X100 Ultra——6400万潜望长焦支持5倍光学变焦，搭配AI运动抓拍模式，快门响应快、追焦稳；S19 Pro前置5000万+AI美颜也适合亲子自拍，主摄同样支持运动优化",
+            "step4_hook": "需要帮您对比这两款的实拍样张吗？",
+            "step5_close": "后续有任何使用问题，随时找我们"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 4.100704908370972,
+          "input_tokens": 384,
+          "output_tokens": 177
+        }
+      ]
+    },
+    {
+      "case": {
+        "id": "T3",
+        "customer_message": "mate70pro和pura70ultra哪个好？主要用来拍照",
+        "brand": "huawei",
+        "brand_en": "huawei",
+        "platform": "jd",
+        "scene": "pre_sale_compare"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注影像能力，倾向专业拍照需求，情绪中性偏期待",
+            "step2_strategy": "聚焦Pura 70 Ultra影像技术优势，客观对比不贬低Mate 70 Pro，强调自研伸缩主摄与1英寸传感器的协同优化",
+            "step3_script": "如果您以专业级影像创作为核心需求，Pura 70 Ultra搭载5000万超聚光伸缩主摄与1英寸物理传感器，配合华为自研影像算法，在暗光、长焦和动态范围表现上更具深度优化能力。",
+            "step4_hook": "可为您安排门店实拍体验",
+            "step5_close": "欢迎随时咨询后续服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 3.3844683170318604,
+          "input_tokens": 411,
+          "output_tokens": 160
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注影像能力，倾向专业摄影需求，情绪理性且有决策倾向",
+            "step2_strategy": "聚焦Pura 70 Ultra影像技术优势，用自研伸缩镜头与1英寸传感器等客观参数说明，避免主观比较，保持中立专业",
+            "step3_script": "若您以专业级影像体验为首要需求，Pura 70 Ultra搭载5000万超聚光伸缩主摄与1英寸物理传感器，配合华为自研影像算法，在暗光、长焦和动态范围表现上更进一步，是当前华为影像旗舰的代表之作。",
+            "step4_hook": "可为您安排样张对比演示",
+            "step5_close": "欢迎随时咨询后续服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 4.209959506988525,
+          "input_tokens": 411,
+          "output_tokens": 167
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注影像能力，倾向专业摄影需求，情绪中性偏期待",
+            "step2_strategy": "聚焦Pura 70 Ultra影像技术优势，客观对比不贬低Mate 70 Pro，强调自研伸缩主摄与1英寸传感器的协同优化",
+            "step3_script": "如果您以专业级影像体验为首要需求，Pura 70 Ultra搭载5000万超聚光伸缩主摄与1英寸物理传感器，配合华为自研影像算法，在暗光、长焦和动态范围表现上更具深度调校优势。",
+            "step4_hook": "可为您安排真机影像样张对比",
+            "step5_close": "欢迎随时来店体验"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 3.383737802505493,
+          "input_tokens": 411,
+          "output_tokens": 164
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注影像能力，倾向专业摄影需求，情绪中性偏期待",
+            "step2_strategy": "聚焦影像技术差异，客观对比传感器与光学架构，突出Pura 70 Ultra的影像专业定位",
+            "step3_script": "若您以专业级影像体验为首要需求，Pura 70 Ultra搭载5000万超聚光伸缩主摄与1英寸大底传感器，在暗光、长焦及动态细节表现上更具优势，是华为影像技术的集中体现。",
+            "step4_hook": "可为您安排真机影像样张对比",
+            "step5_close": "欢迎随时咨询后续服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.9927785396575928,
+          "input_tokens": 411,
+          "output_tokens": 150
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户关注影像能力，倾向专业摄影需求，情绪中性偏期待",
+            "step2_strategy": "聚焦Pura 70 Ultra影像技术优势，客观对比不贬低Mate 70 Pro，强调自研伸缩主摄与1英寸传感器的协同价值",
+            "step3_script": "如果您以专业级影像创作为核心需求，Pura 70 Ultra搭载5000万超聚光伸缩主摄与1英寸物理传感器，配合华为自研XMAGE影像算法，在暗光、长焦和动态范围表现上更具深度优化能力。",
+            "step4_hook": "需要为您安排样张对比演示吗？",
+            "step5_close": "欢迎随时咨询后续服务"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 3.0538997650146484,
+          "input_tokens": 411,
+          "output_tokens": 165
+        }
+      ]
+    },
+    {
+      "case": {
+        "id": "T4",
+        "customer_message": "5999太贵了，隔壁小米才3999，能便宜点吗",
+        "brand": "vivo",
+        "brand_en": "vivo",
+        "platform": "taobao",
+        "scene": "pre_sale_price"
+      },
+      "runs": [
+        {
+          "ok": false,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户对X100 Ultra价格敏感，横向对比竞品寻求优惠，情绪略带犹豫和观望",
+            "step2_strategy": "不议价但强化价值差异，用影像系统、卫星通信等硬参数建立技术溢价认知，同步提供分期+赠品方案降低感知门槛",
+            "step3_script": "X100 Ultra搭载蔡司APO超级长焦和自研V3+影像芯片，支持双向北斗卫星消息，5999元包含vivo TWS 3耳机（价值399元）和12期免息，月供仅499元，比旗舰影像体验更进一步。",
+            "step4_hook": "现在下单即发",
+            "step5_close": "欢迎随时咨询"
+          },
+          "missing": [],
+          "leaks": [
+            {
+              "brand": "huawei",
+              "word": "北斗"
+            }
+          ],
+          "style_words": [
+            "蔡司",
+            "vivo TWS"
+          ],
+          "latency": 4.30712890625,
+          "input_tokens": 395,
+          "output_tokens": 172
+        },
+        {
+          "ok": false,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户对X100 Ultra价格敏感，横向对比竞品寻求优惠，情绪偏犹豫但有购买意向",
+            "step2_strategy": "不议价不降价，用技术价值锚定价格，突出影像系统、卫星通信等独家配置，并提供分期+赠品组合提升性价比感知",
+            "step3_script": "X100 Ultra搭载蔡司APO超级长焦和双卫星通信，5999元包含vivo TWS 3耳机（价值399元），12期免息月付仅499元，比小米同档机型多出2颗专业光学镜头和全域防抖算法",
+            "step4_hook": "现在下单立享赠品",
+            "step5_close": "欢迎随时咨询售后"
+          },
+          "missing": [],
+          "leaks": [
+            {
+              "brand": "huawei",
+              "word": "卫星通信"
+            }
+          ],
+          "style_words": [
+            "蔡司",
+            "vivo TWS"
+          ],
+          "latency": 3.2510132789611816,
+          "input_tokens": 395,
+          "output_tokens": 175
+        },
+        {
+          "ok": false,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户对X100 Ultra价格敏感，存在横向比价心理，情绪偏犹豫观望",
+            "step2_strategy": "不直接降价，用分期+赠品提升性价比感知，强调影像与卫星通信等差异化技术价值",
+            "step3_script": "X100 Ultra搭载蔡司APO超级长焦和双芯卫星通信，5999元含12期免息+价值399元TWS 3耳机，综合权益超6300元，小米同价位暂未覆盖该影像规格",
+            "step4_hook": "现在下单马上安排发货",
+            "step5_close": "后续有任何使用问题随时找我"
+          },
+          "missing": [],
+          "leaks": [
+            {
+              "brand": "huawei",
+              "word": "卫星通信"
+            }
+          ],
+          "style_words": [
+            "蔡司"
+          ],
+          "latency": 3.3451297283172607,
+          "input_tokens": 395,
+          "output_tokens": 155
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户对X100 Ultra价格敏感，横向对比竞品寻求优惠，情绪偏犹豫观望",
+            "step2_strategy": "不直接议价，用旗舰影像技术差异和赠品价值强化性价比，引导关注分期降低感知门槛",
+            "step3_script": "X100 Ultra搭载蔡司APO超级长焦+双VCS仿生光谱传感器，5倍光学变焦解析力达行业TOP1（实测MTF值0.82），现在下单享12期免息，月付仅499元，还送价值399元的vivo TWS 3耳机。",
+            "step4_hook": "需要帮您算下月供明细吗？",
+            "step5_close": "后续有使用问题随时找我"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "蔡司",
+            "vivo TWS"
+          ],
+          "latency": 3.4549219608306885,
+          "input_tokens": 395,
+          "output_tokens": 179
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户对X100 Ultra价格敏感，存在横向比价心理，情绪偏犹豫观望",
+            "step2_strategy": "不直接议价，用旗舰影像技术差异和赠品价值强化性价比，引导关注分期降低感知门槛",
+            "step3_script": "X100 Ultra搭载蔡司APO超级长焦和双芯影像系统，5999元包含vivo TWS 3耳机（399元）+12期免息，月付仅499元，比小米同档多出1亿像素潜望长焦和全焦段防抖",
+            "step4_hook": "现在下单立享赠品",
+            "step5_close": "后续有新机也优先通知您"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [
+            "蔡司",
+            "vivo TWS"
+          ],
+          "latency": 3.589653491973877,
+          "input_tokens": 395,
+          "output_tokens": 170
+        }
+      ]
+    },
+    {
+      "case": {
+        "id": "T5",
+        "customer_message": "用了半年手机突然开不了机了，卡在logo界面",
+        "brand": "huawei",
+        "brand_en": "huawei",
+        "platform": "jd",
+        "scene": "after_sale_fault"
+      },
+      "runs": [
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户遭遇非预期系统卡顿，情绪焦虑且急需技术支援",
+            "step2_strategy": "先共情安抚，再提供标准自救方案，同步引导售后判断流程",
+            "step3_script": "您好，理解您遇到开机卡在Logo界面的困扰。建议先尝试长按电源键+音量下键15秒强制重启，若仍无法进入系统，可能是系统异常或硬件问题，我们可为您安排免费检测。",
+            "step4_hook": "请提供订单号",
+            "step5_close": "华为服务始终在线"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.9745571613311768,
+          "input_tokens": 402,
+          "output_tokens": 130
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户遭遇系统异常卡顿，情绪焦虑急需技术支持",
+            "step2_strategy": "先共情安抚，提供自助恢复方案，再引导售后检测流程",
+            "step3_script": "您好，理解您遇到开机卡在Logo界面的困扰。建议您先尝试长按电源键+音量下键15秒强制重启，这是华为官方推荐的系统自救方式。",
+            "step4_hook": "如重启无效，请提供订单号",
+            "step5_close": "华为服务全程有保障"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.9791126251220703,
+          "input_tokens": 402,
+          "output_tokens": 121
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户遭遇非人为故障，情绪焦虑急需技术支援",
+            "step2_strategy": "先共情安抚，明确属保修范围，引导至官方服务渠道处理",
+            "step3_script": "您好，理解您遇到开机卡在Logo界面的困扰。这属于保修期内非人为质量问题，可享受15天内免费换新或12个月全国联保维修服务。",
+            "step4_hook": "建议优先预约华为服务店",
+            "step5_close": "华为服务始终在线"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.76472806930542,
+          "input_tokens": 402,
+          "output_tokens": 118
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户遭遇非预期系统异常，情绪焦虑且急需专业支持",
+            "step2_strategy": "先共情安抚，快速引导至标准故障排查流程，再结合保修政策提供明确解决方案",
+            "step3_script": "您好，理解您遇到开机卡在Logo界面的困扰。建议先尝试长按电源键+音量下键15秒强制重启，若仍无法进入系统，您的手机仍在12个月全国联保期内，可预约华为授权服务中心检测。",
+            "step4_hook": "为您优先安排检测",
+            "step5_close": "服务满意欢迎常回"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 3.170168161392212,
+          "input_tokens": 402,
+          "output_tokens": 138
+        },
+        {
+          "ok": true,
+          "error": null,
+          "parsed": {
+            "step1_intent": "客户遭遇非人为故障，情绪焦虑急需技术支援",
+            "step2_strategy": "先共情安抚，明确属保修范围，引导至官方服务渠道处理",
+            "step3_script": "您好，理解您遇到开机卡在Logo界面的困扰。这属于保修期内非人为质量问题，可享受15天内免费换新或12个月全国联保维修服务。",
+            "step4_hook": "建议优先预约华为服务店",
+            "step5_close": "华为服务始终在线"
+          },
+          "missing": [],
+          "leaks": [],
+          "style_words": [],
+          "latency": 2.778777837753296,
+          "input_tokens": 402,
+          "output_tokens": 118
+        }
+      ]
+    }
+  ]
+}

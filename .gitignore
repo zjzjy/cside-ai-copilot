@@ -1,0 +1,49 @@
+# --- Java (Maven/Gradle) ---
+target/
+*.class
+*.jar
+*.war
+!.mvn/wrapper/maven-wrapper.jar
+
+# --- Node ---
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# --- IDE ---
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.settings/
+.project
+.classpath
+
+# --- Environment ---
+.env
+*.local
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# --- Docker ---
+docker/volumes/
+
+# --- Logs ---
+logs/
+*.log
+data/eval/__pycache__/
+*.zip
+
+# --- E2E Test Artifacts ---
+playwright-report/
+test-results/
+*.png
+# 文档与 README 里用到的截图/GIF 需要入库（其余图片仍忽略）
+!docs/images/*.png
+!docs/images/*.gif

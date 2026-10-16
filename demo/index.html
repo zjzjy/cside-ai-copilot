@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSide 并排演示 · 客服工作台 + AI 侧边栏</title>
+    <!--
+      并排演示页：左边是模拟的客服工作台，右边是 CSide 侧边栏本体（demo/app 里的静态构建）。
+      两个 iframe 用同一套 cside_* URL 参数声明店铺上下文，所以打开即进入"华为旗舰店（淘宝）"。
+
+      需要先执行 `npm run build:demo`（在 frontend/extension 目录）生成 demo/app。
+      本地用任意静态服务器打开，例如：python -m http.server 8088
+    -->
+    <style>
+      :root {
+        --line: #dfe4ec;
+        --ink: #16233a;
+        --muted: #6b7a90;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        color: var(--ink);
+        background: #eceff4;
+        font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+      }
+
+      .browser {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+        margin: 14px;
+        border: 1px solid #d3d9e3;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 18px 46px rgb(21 35 60 / 14%);
+        overflow: hidden;
+      }
+
+      .tabbar {
+        display: flex;
+        align-items: flex-end;
+        gap: 6px;
+        padding: 8px 12px 0;
+        background: #dfe4ec;
+      }
+
+      .tab-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 14px;
+        border-radius: 9px 9px 0 0;
+        color: #47536b;
+        background: #cfd6e1;
+        font-size: 12px;
+      }
+
+      .tab-item.is-active {
+        color: var(--ink);
+        background: #fff;
+        font-weight: 600;
+      }
+
+      .favicon {
+        width: 13px;
+        height: 13px;
+        border-radius: 4px;
+        background: #ff6a00;
+      }
+
+      .newtab {
+        padding: 4px 9px 7px;
+        color: #66738a;
+        font-size: 14px;
+      }
+
+      .addressbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-bottom: 1px solid var(--line);
+        background: #f5f7fa;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 6px;
+        color: #8a95a8;
+        font-size: 13px;
+      }
+
+      .url {
+        flex: 1;
+        padding: 6px 12px;
+        border: 1px solid #e2e7ef;
+        border-radius: 999px;
+        color: #46536b;
+        background: #fff;
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 11.5px;
+      }
+
+      .url .lock {
+        margin-right: 6px;
+        color: #12b76a;
+      }
+
+      .ext-badge {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        color: #175cd3;
+        background: #eaf2ff;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .stage {
+        display: grid;
+        flex: 1;
+        grid-template-columns: minmax(0, 1fr) 400px;
+        min-height: 0;
+      }
+
+      .stage iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: #fff;
+      }
+
+      .stage .panel-frame {
+        border-left: 1px solid var(--line);
+        background: #f7f9fc;
+      }
+
+      .frame-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 14px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        background: #fbfcfe;
+        font-size: 11px;
+      }
+
+      .panel-column {
+        display: flex;
+        min-height: 0;
+        flex-direction: column;
+        border-left: 1px solid var(--line);
+      }
+
+      .caption {
+        padding: 10px 14px 14px;
+        color: var(--muted);
+        background: #fbfcfe;
+        font-size: 11px;
+        line-height: 1.7;
+      }
+
+      .caption b {
+        color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="browser">
+      <div class="tabbar">
+        <div class="tab-item is-active"><span class="favicon"></span>千牛工作台 · 华为旗舰店（淘宝）</div>
+        <div class="tab-item">商家中心</div>
+        <div class="newtab">+</div>
+      </div>
+      <div class="addressbar">
+        <div class="nav-buttons"><span>←</span><span>→</span><span>⟳</span></div>
+        <div class="url"><span class="lock">🔒</span>qn.taobao.com/chat?shopId=huawei-taobao-flagship&amp;shopName=华为旗舰店</div>
+        <div class="ext-badge">🧩 CSide 已加载</div>
+      </div>
+
+      <div class="stage">
+        <iframe
+          title="模拟客服工作台"
+          src="./mock-console.html?cside_brand=huawei&cside_platform=taobao&cside_store=huawei-taobao-flagship&cside_store_name=%E5%8D%8E%E4%B8%BA%E6%97%97%E8%88%B0%E5%BA%97%EF%BC%88%E6%B7%98%E5%AE%9D%EF%BC%89"
+        ></iframe>
+
+        <div class="panel-column">
+          <div class="frame-label">🧩 CSide 侧边栏（Chrome Side Panel） · 演示模式使用 Mock API</div>
+          <iframe
+            class="panel-frame"
+            title="CSide 侧边栏"
+            src="./app/index.html?cside_demo=1&cside_brand=huawei&cside_platform=taobao&cside_store=huawei-taobao-flagship&cside_store_name=%E5%8D%8E%E4%B8%BA%E6%97%97%E8%88%B0%E5%BA%97%EF%BC%88%E6%B7%98%E5%AE%9D%EF%BC%89"
+          ></iframe>
+          <div class="caption">
+            左侧是模拟的客服工作台（千牛形态），右侧是 CSide 侧边栏本身。<br />
+            真实使用时侧边栏停靠在浏览器右侧，<b>跟随当前 Tab 自动识别店铺上下文</b>；本页用 URL 参数
+            <code>cside_*</code> 完成同样的声明。
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "store_id": "vivo-taobao",
+  "store_name": "vivo官方旗舰店-淘宝",
+  "brand": "vivo",
+  "platform": "taobao",
+  "current_promotions": [
+    {
+      "id": "PROMO-001",
+      "name": "618年中大促",
+      "period": "2026-06-01 ~ 2026-06-18",
+      "rules": [
+        "全场满3000减300，满5000减600",
+        "指定机型下单送vivo TWS 3耳机（价值399元）",
+        "12期免息分期",
+        "前100名下单加赠原装无线充电器"
+      ],
+      "special_notes": "活动价不与其他优惠叠加，赠品数量有限先到先得"
+    },
+    {
+      "id": "PROMO-002",
+      "name": "学生专属优惠",
+      "period": "长期有效",
+      "rules": [
+        "凭学生证认证后可享指定机型额外95折",
+        "学生专享12期免息",
+        "毕业季（6-7月）额外赠送品牌周边礼盒"
+      ],
+      "special_notes": "需在支付宝完成学生认证"
+    }
+  ],
+  "store_specific_rules": {
+    "extended_return": "本店支持15天无理由退货（激活后不支持除外，高于平台标准的7天）",
+    "after_sales_hours": "客服在线时间 8:00-24:00",
+    "gift_wrapping": "支持礼品包装，下单时备注即可（免费）"
+  }
+}
