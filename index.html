@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="0; url=./demo/index.html" />
+    <title>CSide 在线演示 · 电商智能客服 AI 副驾驶</title>
+    <!--
+      GitHub Pages 的入口页：仓库根目录没有 index.html 时访问站点根路径会 404，
+      这里直接跳到 demo/index.html（模拟客服工作台 + 侧边栏并排演示）。
+    -->
+    <style>
+      :root {
+        color-scheme: light;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        background: radial-gradient(circle at 80% 0%, rgb(23 105 246 / 12%), transparent 320px), #f7f9fc;
+        color: #0f1f3d;
+        font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+      }
+
+      .card {
+        width: min(520px, 88vw);
+        padding: 28px 26px;
+        border: 1px solid #dde5f0;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 18px 46px rgb(15 31 61 / 10%);
+        text-align: left;
+      }
+
+      .mark {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border-radius: 14px;
+        color: #fff;
+        background: linear-gradient(145deg, #1769f6, #0d4fc4);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      h1 {
+        margin: 16px 0 6px;
+        font-size: 22px;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0 0 14px;
+        color: #475467;
+        font-size: 13.5px;
+        line-height: 1.75;
+      }
+
+      ul {
+        margin: 0 0 18px;
+        padding-left: 18px;
+        color: #475467;
+        font-size: 13px;
+        line-height: 1.9;
+      }
+
+      a.button {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 10px;
+        color: #fff;
+        background: #1769f6;
+        font-size: 13.5px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      a.link {
+        margin-left: 12px;
+        color: #175cd3;
+        font-size: 13px;
+        text-decoration: none;
+      }
+
+      code {
+        padding: 1px 5px;
+        border-radius: 4px;
+        background: #f1f5fb;
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 12.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="mark">AI</div>
+      <h1>CSide · 电商智能客服 AI 副驾驶</h1>
+      <p>正在跳转到在线演示（模拟客服工作台 + Chrome 侧边栏并排）。</p>
+      <ul>
+        <li>左侧：模拟的千牛形态客服工作台，客户正在咨询「小米和联想的耳机哪个好？」</li>
+        <li>右侧：CSide 侧边栏，输入消息即可生成五步回复建议与溯源依据</li>
+        <li>演示使用 Mock 数据，不需要后端与数据库</li>
+      </ul>
+      <a class="button" href="./demo/index.html">立即打开演示</a>
+      <a class="link" href="https://github.com/zjzjy/cside-ai-copilot">查看源码与文档</a>
+      <p style="margin-top: 16px">
+        没有自动跳转？直接访问 <code>demo/index.html</code>。
+      </p>
+    </div>
+  </body>
+</html>
