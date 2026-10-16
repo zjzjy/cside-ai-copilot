@@ -55,7 +55,7 @@
 
 ## 二、先看效果
 
-### 交互流程（约 6 秒）
+### 交互流程
 
 <img src="docs/images/demo-flow.gif" alt="输入客户消息 → 生成五步建议 → 展开依据 → 查看溯源 → 复制话术" width="420" />
 
@@ -65,7 +65,7 @@
 | --- | --- | --- |
 | <img src="docs/images/panel-empty.png" width="240" /> | <img src="docs/images/panel-result.png" width="240" /> | <img src="docs/images/panel-trace.png" width="240" /> |
 
-### 在线演示（不用装任何东西）
+### 在线演示
 
 **https://zjzjy.github.io/cside-ai-copilot/**
 
@@ -110,7 +110,7 @@
 
 检索用自实现的中文 BM25 + pgvector 余弦混合打分：`最终分数 = 0.75 × 归一化 BM25 + 0.20 × 向量余弦 + 层级 boost`（店铺 +0.05 / 品牌 +0.03 / 通用 0）。中文 BM25 用「汉字 1-gram + 2-gram」组合切分（如「耳机不响」→ 耳 / 耳机 / 机 / 机不 / 不 / 不响 / 响），兼顾召回与词序信息。
 
-### 4. 结构化输出要有三层兜底，不能让 UI 崩在模型上
+### 4. 结构化输出有三层兜底
 
 | 层 | 手段 |
 | --- | --- |
@@ -120,7 +120,7 @@
 
 同时配置模型降级链：**DeepSeek V4 Flash → Qwen3.5 Plus → 腾讯混元 Hy3**（顺序在 `.env` 里可配，未配置 Key 的节点自动跳过）。
 
-### 5. 溯源是「信任基础设施」，不是卖点装饰
+### 5. 溯源
 
 客服敢不敢用 AI 给的话术，取决于能不能快速核对「这句话是根据什么说的」。所以每次生成都返回 RAG 召回的 Top-3 知识片段（来源 ID、层级、场景、分数）。产品上它被刻意做「轻」——默认收起，需要核对时再展开；AI 生成的内容永远标注「仅供参考，发送前请人工核对」，**产品不做自动发送**。
 
@@ -521,17 +521,6 @@ cd frontend/extension && npm run verify   # test + lint + format:check + build +
 | [docs/mvp-tasks.md](docs/mvp-tasks.md) · [docs/iteration-2-tasks.md](docs/iteration-2-tasks.md) | MVP 与迭代二的任务卡片（含验收标准） |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | 后续开发计划 |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 开发环境、分支策略与提交规范 |
-
-### 团队与分工
-
-本项目为 4 人小组协作完成（Spring Boot + React + Chrome 扩展全栈实现）。仓库内 36 次提交中，本人（[@zjzjy](https://github.com/zjzjy)）提交 26 次，主要负责：
-
-- **产品侧**：产品方案、AI PRD、SRS、任务拆分与验收标准（`docs/CSide-产品方案.md`、`docs/CSide-AI-PRD.md`、`docs/srs.md`、`docs/*-tasks.md`）；
-- **后端**：五步生成链路、RAG 混合检索、知识导入、品牌 / 店铺配置与 JWT 鉴权（`backend/src/main/java/com/cside/`）；
-- **前端**：侧边栏核心界面（五步面板、溯源面板、店铺切换）与管理后台配置页；
-- **数据与评测**：数据库 DDL、种子知识库、11 模型选型评测脚本与结果。
-
-其余模块（后台部分页面、扩展的 content script / background 能力、部分测试脚手架）由队友协作完成，提交记录可回溯。
 
 ---
 
