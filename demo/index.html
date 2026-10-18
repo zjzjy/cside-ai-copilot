@@ -3,19 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSide 并排演示 · 客服工作台 + AI 侧边栏</title>
+    <meta
+      name="description"
+      content="CSide 产品演示：纯前端模拟客服工作台与 AI 侧边栏，所有数据均为虚构。"
+    />
+    <link rel="icon" href="data:," />
+    <title>CSide 产品演示 · 模拟客服工作台 + AI 侧边栏</title>
     <!--
-      并排演示页：左边是模拟的客服工作台，右边是 CSide 侧边栏本体（demo/app 里的静态构建）。
-      两个 iframe 用同一套 cside_* URL 参数声明店铺上下文，所以打开即进入"华为旗舰店（淘宝）"。
-
-      需要先执行 `npm run build:demo`（在 frontend/extension 目录）生成 demo/app。
-      本地用任意静态服务器打开，例如：python -m http.server 8088
+      纯静态产品演示页：左侧是模拟客服工作台，右侧是 CSide 侧边栏静态构建。
+      这里刻意不渲染浏览器标签栏、地址栏或锁图标，避免被安全引擎误判为
+      冒充真实电商后台的钓鱼页面。所有店铺、客户和订单数据均为虚构。
     -->
     <style>
       :root {
         --line: #dfe4ec;
         --ink: #16233a;
         --muted: #6b7a90;
+        --brand: #1769f6;
+        --warning-bg: #fff4e5;
+        --warning-line: #f5c98a;
+        --warning-ink: #7a3e00;
       }
 
       * {
@@ -32,188 +39,211 @@
         display: flex;
         flex-direction: column;
         color: var(--ink);
-        background: #eceff4;
+        background: #eef2f7;
         font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
       }
 
-      .browser {
+      .demo-banner {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 20px;
+        border-bottom: 1px solid var(--warning-line);
+        color: var(--warning-ink);
+        background: var(--warning-bg);
+      }
+
+      .demo-banner .tag {
+        flex: none;
+        margin-top: 1px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        color: #fff;
+        background: #b54708;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .demo-banner strong {
+        display: block;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .demo-banner p {
+        max-width: 1100px;
+        margin: 3px 0 0;
+        font-size: 11.5px;
+        line-height: 1.65;
+      }
+
+      .demo-shell {
         display: flex;
         flex: 1;
         flex-direction: column;
         min-height: 0;
-        margin: 14px;
-        border: 1px solid #d3d9e3;
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 18px 46px rgb(21 35 60 / 14%);
-        overflow: hidden;
-      }
-
-      .tabbar {
-        display: flex;
-        align-items: flex-end;
-        gap: 6px;
-        padding: 8px 12px 0;
-        background: #dfe4ec;
-      }
-
-      .tab-item {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        padding: 7px 14px;
-        border-radius: 9px 9px 0 0;
-        color: #47536b;
-        background: #cfd6e1;
-        font-size: 12px;
-      }
-
-      .tab-item.is-active {
-        color: var(--ink);
-        background: #fff;
-        font-weight: 600;
-      }
-
-      .favicon {
-        width: 13px;
-        height: 13px;
-        border-radius: 4px;
-        background: #ff6a00;
-      }
-
-      .newtab {
-        padding: 4px 9px 7px;
-        color: #66738a;
-        font-size: 14px;
-      }
-
-      .addressbar {
-        display: flex;
-        align-items: center;
+        padding: 12px 14px 14px;
         gap: 10px;
-        padding: 8px 12px;
-        border-bottom: 1px solid var(--line);
-        background: #f5f7fa;
       }
 
-      .nav-buttons {
+      .demo-head {
         display: flex;
-        gap: 6px;
-        color: #8a95a8;
-        font-size: 13px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0 2px;
       }
 
-      .url {
-        flex: 1;
-        padding: 6px 12px;
-        border: 1px solid #e2e7ef;
-        border-radius: 999px;
-        color: #46536b;
-        background: #fff;
-        font-family: ui-monospace, Consolas, monospace;
+      .demo-head h1,
+      .demo-head p {
+        margin: 0;
+      }
+
+      .demo-head h1 {
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      .demo-head p {
+        margin-top: 2px;
+        color: var(--muted);
         font-size: 11.5px;
       }
 
-      .url .lock {
-        margin-right: 6px;
-        color: #12b76a;
-      }
-
-      .ext-badge {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 10px;
+      .demo-pill {
+        flex: none;
+        padding: 5px 10px;
+        border: 1px solid #cfe0ff;
         border-radius: 999px;
         color: #175cd3;
         background: #eaf2ff;
-        font-size: 11px;
-        font-weight: 600;
+        font-size: 10.5px;
+        font-weight: 700;
+        white-space: nowrap;
       }
 
       .stage {
         display: grid;
         flex: 1;
         grid-template-columns: minmax(0, 1fr) 400px;
+        gap: 12px;
         min-height: 0;
       }
 
-      .stage iframe {
+      .pane {
+        display: flex;
+        min-height: 0;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 10px 30px rgb(21 35 60 / 8%);
+      }
+
+      .pane-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 8px 12px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        background: #f8fafc;
+        font-size: 11px;
+      }
+
+      .pane-label b {
+        color: var(--ink);
+      }
+
+      .pane iframe {
+        flex: 1;
         width: 100%;
-        height: 100%;
+        min-height: 0;
         border: 0;
         background: #fff;
       }
 
-      .stage .panel-frame {
-        border-left: 1px solid var(--line);
-        background: #f7f9fc;
-      }
-
-      .frame-label {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 7px 14px;
-        border-bottom: 1px solid var(--line);
-        color: var(--muted);
-        background: #fbfcfe;
-        font-size: 11px;
-      }
-
-      .panel-column {
-        display: flex;
-        min-height: 0;
-        flex-direction: column;
-        border-left: 1px solid var(--line);
-      }
-
       .caption {
-        padding: 10px 14px 14px;
+        margin: 0;
+        padding: 0 2px;
         color: var(--muted);
-        background: #fbfcfe;
         font-size: 11px;
-        line-height: 1.7;
+        line-height: 1.6;
       }
 
       .caption b {
         color: var(--ink);
       }
+
+      @media (max-width: 900px) {
+        .demo-banner {
+          padding: 10px 14px;
+        }
+
+        .stage {
+          grid-template-columns: 1fr;
+          grid-template-rows: minmax(320px, 1fr) minmax(420px, 1fr);
+        }
+
+        .demo-head {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 6px;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="browser">
-      <div class="tabbar">
-        <div class="tab-item is-active"><span class="favicon"></span>千牛工作台 · 华为旗舰店（淘宝）</div>
-        <div class="tab-item">商家中心</div>
-        <div class="newtab">+</div>
+    <div class="demo-banner" role="note">
+      <span class="tag">纯演示</span>
+      <div>
+        <strong>这不是官方客服后台，也不会收集任何账号或客户信息。</strong>
+        <p>
+          本页只用于展示 CSide 的交互流程；客户、订单、商品和店铺数据均为虚构。页面不连接后端、不需要登录，与淘宝、天猫、千牛、华为等品牌无关联。
+        </p>
       </div>
-      <div class="addressbar">
-        <div class="nav-buttons"><span>←</span><span>→</span><span>⟳</span></div>
-        <div class="url"><span class="lock">🔒</span>qn.taobao.com/chat?shopId=huawei-taobao-flagship&amp;shopName=华为旗舰店</div>
-        <div class="ext-badge">🧩 CSide 已加载</div>
-      </div>
+    </div>
 
-      <div class="stage">
-        <iframe
-          title="模拟客服工作台"
-          src="./mock-console.html?cside_brand=huawei&cside_platform=taobao&cside_store=huawei-taobao-flagship&cside_store_name=%E5%8D%8E%E4%B8%BA%E6%97%97%E8%88%B0%E5%BA%97%EF%BC%88%E6%B7%98%E5%AE%9D%EF%BC%89"
-        ></iframe>
-
-        <div class="panel-column">
-          <div class="frame-label">🧩 CSide 侧边栏（Chrome Side Panel） · 演示模式使用 Mock API</div>
-          <iframe
-            class="panel-frame"
-            title="CSide 侧边栏"
-            src="./app/index.html?cside_demo=1&cside_brand=huawei&cside_platform=taobao&cside_store=huawei-taobao-flagship&cside_store_name=%E5%8D%8E%E4%B8%BA%E6%97%97%E8%88%B0%E5%BA%97%EF%BC%88%E6%B7%98%E5%AE%9D%EF%BC%89"
-          ></iframe>
-          <div class="caption">
-            左侧是模拟的客服工作台（千牛形态），右侧是 CSide 侧边栏本身。<br />
-            真实使用时侧边栏停靠在浏览器右侧，<b>跟随当前 Tab 自动识别店铺上下文</b>；本页用 URL 参数
-            <code>cside_*</code> 完成同样的声明。
-          </div>
+    <div class="demo-shell">
+      <header class="demo-head">
+        <div>
+          <h1>CSide 产品演示</h1>
+          <p>模拟客服工作台 + AI 侧边栏 · 全部数据为 Mock</p>
         </div>
-      </div>
+        <span class="demo-pill">静态页面 · 无需登录</span>
+      </header>
+
+      <main class="stage">
+        <section class="pane" aria-label="模拟客服工作台">
+          <div class="pane-label">
+            <span><b>左侧</b> 模拟客服工作台</span>
+            <span>示例数据 · 非真实店铺</span>
+          </div>
+          <iframe
+            title="模拟客服工作台（示例数据）"
+            src="./mock-console.html?cside_brand=demo&cside_platform=demo&cside_store=demo-store&cside_store_name=%E7%A4%BA%E4%BE%8B%E5%93%81%E7%89%8C%E6%97%97%E8%88%B0%E5%BA%97%EF%BC%88%E6%BC%94%E7%A4%BA%EF%BC%89"
+          ></iframe>
+        </section>
+
+        <section class="pane" aria-label="CSide 侧边栏">
+          <div class="pane-label">
+            <span><b>右侧</b> CSide 侧边栏</span>
+            <span>Mock API · 不连接后端</span>
+          </div>
+          <iframe
+            title="CSide 侧边栏演示（Mock）"
+            src="./app/index.html?cside_brand=demo&cside_platform=demo&cside_store=demo-store&cside_store_name=%E7%A4%BA%E4%BE%8B%E5%93%81%E7%89%8C%E6%97%97%E8%88%B0%E5%BA%97%EF%BC%88%E6%BC%94%E7%A4%BA%EF%BC%89"
+          ></iframe>
+        </section>
+      </main>
+
+      <p class="caption">
+        真实使用时，CSide 以浏览器侧边栏形式停靠在右侧，并跟随当前 Tab 识别店铺上下文；本页用 URL
+        参数模拟同样的声明方式。<b>本页不会连接后端，也不会上传任何内容。</b>
+      </p>
     </div>
   </body>
 </html>
